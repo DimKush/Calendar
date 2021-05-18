@@ -9,19 +9,30 @@ function FillArrsOfDaysCalendar(){
 
   var calendarDays = [];
   var day = startDate.clone();
+  var calendarDaysSplitedWeeks = [];
 
   while(!day.isAfter(endDate)){
     calendarDays.push(day.clone());
     day.add(1,'day');
   }
 
-  console.log(calendarDays);
+  //split on weeks
+  for(var i = 0 ; i < calendarDays.length; i+=7){
+    if (i > calendarDays.length)
+      i = calendarDays.length;
+
+    calendarDaysSplitedWeeks.push(calendarDays.slice(i, i+7));
+  }
+  
+  return calendarDaysSplitedWeeks;
 }
 
 
 function App() {
 
-  FillArrsOfDaysCalendar();
+  var calendarDays = FillArrsOfDaysCalendar();
+  console.log(calendarDays);
+
 
   return (
     <div className="App">
