@@ -10,7 +10,7 @@ const GridWrapper = styled.div`
 const CellWrapper = styled.div`
 position: relative;
     min-width: 140px;
-    min-height: 80px;
+    min-height: 100px;
     background-color: ${props =>props.isWeekend ? '#262626' : '#1a1a1a'};
     color: #d4d4d4
 `;
