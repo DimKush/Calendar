@@ -4,6 +4,10 @@ import {Header} from '../Header'
 import {Controls} from '../Controls'
 import {CalendarGrid} from '../Grid'
 
+
+function getGeolocationDataFromServer(latitude, longitude){
+}
+
 let getLocationPromise = new Promise((resolve, reject) => {
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -27,9 +31,14 @@ function App() {
   getLocationPromise.then((location) => {
     latitude = location.latitude;
     longitude = location.longitude;
+    console.log(location.latitude);
+    console.log(location.longitude);
+
   }).catch((err) =>{
     console.log(err);
   });
+
+  console.log('lat ', latitude , 'long ',longitude);
 
   moment.updateLocale('en',{week:{dow:'1'}});
   var dateBegin = moment().startOf('month').startOf('week');
